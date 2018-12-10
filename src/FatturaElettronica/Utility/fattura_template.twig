@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:FatturaElettronica xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:p="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" versione="{{ FatturaElettronica.versione }}" xsi:schemaLocation="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2 http://www.fatturapa.gov.it/export/fatturazione/sdi/fatturapa/v1.2/Schema_del_file_xml_FatturaPA_versione_1.2.xsd">
+  <FatturaElettronicaHeader>
+    <DatiTrasmissione>
+      <IdTrasmittente>
+        <IdPaese>{{ FatturaElettronica.FatturaElettronicaHeader.DatiTrasmissione.IdTrasmittente.IdPaese }}</IdPaese>
+        <IdCodice>{{ FatturaElettronica.FatturaElettronicaHeader.DatiTrasmissione.IdTrasmittente.IdCodice }}</IdCodice>
+      </IdTrasmittente>
+      <ProgressivoInvio>{{ FatturaElettronica.FatturaElettronicaHeader.DatiTrasmissione.ProgressivoInvio }}</ProgressivoInvio>
+      <FormatoTrasmissione>{{ FatturaElettronica.FatturaElettronicaHeader.DatiTrasmissione.FormatoTrasmissione }}</FormatoTrasmissione>
+      <CodiceDestinatario>{{ FatturaElettronica.FatturaElettronicaHeader.DatiTrasmissione.CodiceDestinatario }}</CodiceDestinatario>
+      {% if FatturaElettronica.FatturaElettronicaHeader.DatiTrasmissione.ContattiTrasmittente %}
+        <ContattiTrasmittente>
+          {% if FatturaElettronica.FatturaElettronicaHeader.DatiTrasmissione.ContattiTrasmittente.Telefono %}
+            <Telefono>{{ FatturaElettronica.FatturaElettronicaHeader.DatiTrasmissione.ContattiTrasmittente.Telefono }}</Telefono>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.DatiTrasmissione.ContattiTrasmittente.Email %}
+            <Email>{{ FatturaElettronica.FatturaElettronicaHeader.DatiTrasmissione.ContattiTrasmittente.Email }}</Email>
+          {% endif %}
+        </ContattiTrasmittente>
+      {% endif %}
+      {% if FatturaElettronica.FatturaElettronicaHeader.DatiTrasmissione.PECDestinatario %}
+        <PECDestinatario>{{ FatturaElettronica.FatturaElettronicaHeader.DatiTrasmissione.PECDestinatario }}</PECDestinatario>
+      {% endif %}
+    </DatiTrasmissione>
+    <CedentePrestatore>
+      <DatiAnagrafici>
+        <IdFiscaleIVA>
+          <IdPaese>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.IdFiscaleIVA.IdPaese }}</IdPaese>
+          <IdCodice>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.IdFiscaleIVA.IdCodice }}</IdCodice>
+        </IdFiscaleIVA>
+        {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.CodiceFiscale %}
+          <CodiceFiscale>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.CodiceFiscale }}</CodiceFiscale>
+        {% endif %}
+        <Anagrafica>
+          {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Denominazione %}
+            <Denominazione>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Denominazione }}</Denominazione>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Nome %}
+            <Nome>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Nome }}</Nome>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Cognome %}
+            <Cognome>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Cognome }}</Cognome>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Titolo %}
+            <Titolo>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.Titolo }}</Titolo>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.CodEORI %}
+            <CodEORI>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.Anagrafica.CodEORI }}</CodEORI>
+          {% endif %}
+        </Anagrafica>
+        {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.AlboProfessionale %}
+          <AlboProfessionale>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.AlboProfessionale }}</AlboProfessionale>
+        {% endif %}
+        {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.ProvinciaAlbo %}
+          <ProvinciaAlbo>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.ProvinciaAlbo }}</ProvinciaAlbo>
+        {% endif %}
+        {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.NumeroIscrizioneAlbo %}
+          <NumeroIscrizioneAlbo>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.NumeroIscrizioneAlbo }}</NumeroIscrizioneAlbo>
+        {% endif %}
+        {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.DataIscrizioneAlbo %}
+          <DataIscrizioneAlbo>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.DataIscrizioneAlbo }}</DataIscrizioneAlbo>
+        {% endif %}
+        <RegimeFiscale>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.DatiAnagrafici.RegimeFiscale }}</RegimeFiscale>
+      </DatiAnagrafici>
+      <Sede>
+        <Indirizzo>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Sede.Indirizzo }}</Indirizzo>
+        {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Sede.NumeroCivico %}
+          <NumeroCivico>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Sede.NumeroCivico }}</NumeroCivico>
+        {% endif %}
+        <CAP>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Sede.CAP }}</CAP>
+        <Comune>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Sede.Comune }}</Comune>
+        {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Sede.Provincia %}
+          <Provincia>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Sede.Provincia }}</Provincia>
+        {% endif %}
+        <Nazione>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Sede.Nazione }}</Nazione>
+      </Sede>
+      {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.StabileOrganizzazione %}
+        <StabileOrganizzazione>
+          <Indirizzo>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.StabileOrganizzazione.Indirizzo }}</Indirizzo>
+          {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.StabileOrganizzazione.NumeroCivico %}
+            <NumeroCivico>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.StabileOrganizzazione.NumeroCivico }}</NumeroCivico>
+          {% endif %}
+          <CAP>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.StabileOrganizzazione.CAP }}</CAP>
+          <Comune>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.StabileOrganizzazione.Comune }}</Comune>
+          {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.StabileOrganizzazione.Provincia %}
+            <Provincia>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.StabileOrganizzazione.Provincia }}</Provincia>
+          {% endif %}
+          <Nazione>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.StabileOrganizzazione.Nazione }}</Nazione>
+        </StabileOrganizzazione>
+      {% endif %}
+      {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.IscrizioneREA %}
+        <IscrizioneREA>
+          <Ufficio>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.IscrizioneREA.Ufficio }}</Ufficio>
+          <NumeroREA>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.IscrizioneREA.NumeroREA }}</NumeroREA>
+          {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.IscrizioneREA.CapitaleSociale %}
+            <CapitaleSociale>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.IscrizioneREA.CapitaleSociale }}</CapitaleSociale>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.IscrizioneREA.SocioUnico %}
+            <SocioUnico>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.IscrizioneREA.SocioUnico }}</SocioUnico>
+          {% endif %}
+          <StatoLiquidazione>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.IscrizioneREA.StatoLiquidazione }}</StatoLiquidazione>
+        </IscrizioneREA>
+      {% endif %}
+      {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Contatti %}
+        <Contatti>
+          {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Contatti.Telefono %}
+            <Telefono>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Contatti.Telefono }}</Telefono>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Contatti.Fax %}
+            <Fax>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Contatti.Fax }}</Fax>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Contatti.Email %}
+            <Email>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.Contatti.Email }}</Email>
+          {% endif %}
+        </Contatti>
+      {% endif %}
+      {% if FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.RiferimentoAmministrazione %}
+        <RiferimentoAmministrazione>{{ FatturaElettronica.FatturaElettronicaHeader.CedentePrestatore.RiferimentoAmministrazione }}</RiferimentoAmministrazione>
+      {% endif %}
+    </CedentePrestatore>
+    {% if FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale %}
+      <RappresentanteFiscale>
+        <DatiAnagrafici>
+          <IdFiscaleIVA>
+            <IdPaese>{{ FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.IdFiscaleIVA.IdPaese }}</IdPaese>
+            <IdCodice>{{ FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.IdFiscaleIVA.IdCodice }}</IdCodice>
+          </IdFiscaleIVA>
+          {% if FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.CodiceFiscale %}
+            <CodiceFiscale>{{ FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.CodiceFiscale }}</CodiceFiscale>
+          {% endif %}
+          <Anagrafica>
+            {% if FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.Anagrafica.Denominazione %}
+              <Denominazione>{{ FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.Anagrafica.Denominazione }}</Denominazione>
+            {% endif %}
+            {% if FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.Anagrafica.Nome %}
+              <Nome>{{ FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.Anagrafica.Nome }}</Nome>
+            {% endif %}
+            {% if FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.Anagrafica.Cognome %}
+              <Cognome>{{ FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.Anagrafica.Cognome }}</Cognome>
+            {% endif %}
+            {% if FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.Anagrafica.Titolo %}
+              <Titolo>{{ FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.Anagrafica.Titolo }}</Titolo>
+            {% endif %}
+            {% if FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.Anagrafica.CodEORI %}
+              <CodEORI>{{ FatturaElettronica.FatturaElettronicaHeader.RappresentanteFiscale.DatiAnagrafici.Anagrafica.CodEORI }}</CodEORI>
+            {% endif %}
+          </Anagrafica>
+        </DatiAnagrafici>
+      </RappresentanteFiscale>
+    {% endif %}
+    <CessionarioCommittente>
+      <DatiAnagrafici>
+        <IdFiscaleIVA>
+          <IdPaese>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.IdFiscaleIVA.IdPaese }}</IdPaese>
+          <IdCodice>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.IdFiscaleIVA.IdCodice }}</IdCodice>
+        </IdFiscaleIVA>
+        {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.CodiceFiscale %}
+          <CodiceFiscale>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.CodiceFiscale }}</CodiceFiscale>
+        {% endif %}
+        <Anagrafica>
+          {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.Anagrafica.Denominazione %}
+            <Denominazione>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.Anagrafica.Denominazione }}</Denominazione>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.Anagrafica.Nome %}
+            <Nome>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.Anagrafica.Nome }}</Nome>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.Anagrafica.Cognome %}
+            <Cognome>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.Anagrafica.Cognome }}</Cognome>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.Anagrafica.Titolo %}
+            <Titolo>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.Anagrafica.Titolo }}</Titolo>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.Anagrafica.CodEORI %}
+            <CodEORI>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.DatiAnagrafici.Anagrafica.CodEORI }}</CodEORI>
+          {% endif %}
+        </Anagrafica>
+      </DatiAnagrafici>
+      <Sede>
+        <Indirizzo>
+          {{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.Sede.Indirizzo }}
+        </Indirizzo>
+        {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.Sede.NumeroCivico %}
+          <NumeroCivico>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.Sede.NumeroCivico }}</NumeroCivico>
+        {% endif %}
+        <CAP>
+          {{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.Sede.CAP }}
+        </CAP>
+        <Comune>
+          {{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.Sede.Comune }}
+        </Comune>
+        {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.Sede.Provincia %}
+          <Provincia>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.Sede.Provincia }}</Provincia>
+        {% endif %}
+        <Nazione>
+          {{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.Sede.Nazione }}
+        </Nazione>
+      </Sede>
+      {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.StabileOrganizzazione %}
+      <StabileOrganizzazione>
+        <Indirizzo>
+          {{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.StabileOrganizzazione.Indirizzo }}
+        </Indirizzo>
+        {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.StabileOrganizzazione.NumeroCivico %}
+          <NumeroCivico>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.StabileOrganizzazione.NumeroCivico }}</NumeroCivico>
+        {% endif %}
+        <CAP>
+          {{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.StabileOrganizzazione.CAP }}
+        </CAP>
+        <Comune>
+          {{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.StabileOrganizzazione.Comune }}
+        </Comune>
+        {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.StabileOrganizzazione.Provincia %}
+          <Provincia>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.StabileOrganizzazione.Provincia }}</Provincia>
+        {% endif %}
+        <Nazione>
+          {{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.StabileOrganizzazione.Nazione }}
+        </Nazione>
+      </StabileOrganizzazione>
+      {% endif %}
+      {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.RappresentanteFiscale %}
+        <RappresentanteFiscale>
+            <IdFiscaleIVA>
+              <IdPaese>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.RappresentanteFiscale.IdFiscaleIVA.IdPaese }}</IdPaese>
+              <IdCodice>{{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.RappresentanteFiscale.IdFiscaleIVA.IdCodice }}</IdCodice>
+            </IdFiscaleIVA>
+          {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.RappresentanteFiscale.Denominazione %}
+            <Denominazione> {{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.RappresentanteFiscale.Denominazione }}</Denominazione>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.RappresentanteFiscale.Nome %}
+            <Nome> {{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.RappresentanteFiscale.Nome }}</Nome>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.RappresentanteFiscale.Cognome %}
+            <Cognome> {{ FatturaElettronica.FatturaElettronicaHeader.CessionarioCommittente.RappresentanteFiscale.Cognome }}</Cognome>
+          {% endif %}
+        </RappresentanteFiscale>
+      {% endif %}
+    </CessionarioCommittente>
+    {% if FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente %}
+      <TerzoIntermediarioOSoggettoEmittente>
+        <DatiAnagrafici>
+          {% if FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.IdFiscaleIVA %}
+          <IdFiscaleIVA>
+            <IdPaese>{{ FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.IdFiscaleIVA.IdPaese }}</IdPaese>
+            <IdCodice>{{ FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.IdFiscaleIVA.IdCodice }}</IdCodice>
+          </IdFiscaleIVA>
+          {% endif %}
+          {% if FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.CodiceFiscale %}
+            <CodiceFiscale>{{ FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.CodiceFiscale }}</CodiceFiscale>
+          {% endif %}
+          <Anagrafica>
+            {% if FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.Anagrafica.Denominazione %}
+              <Denominazione>{{ FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.Anagrafica.Denominazione }}</Denominazione>
+            {% endif %}
+            {% if FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.Anagrafica.Nome %}
+              <Nome>{{ FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.Anagrafica.Nome }}</Nome>
+            {% endif %}
+            {% if FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.Anagrafica.Cognome %}
+              <Cognome>{{ FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.Anagrafica.Cognome }}</Cognome>
+            {% endif %}
+            {% if FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.Anagrafica.Titolo %}
+              <Titolo>{{ FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.Anagrafica.Titolo }}</Titolo>
+            {% endif %}
+            {% if FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.Anagrafica.CodEORI %}
+              <CodEORI>{{ FatturaElettronica.FatturaElettronicaHeader.TerzoIntermediarioOSoggettoEmittente.DatiAnagrafici.Anagrafica.CodEORI }}</CodEORI>
+            {% endif %}
+          </Anagrafica>
+        </DatiAnagrafici>
+      </TerzoIntermediarioOSoggettoEmittente>
+    {% endif %}
+    {% if FatturaElettronica.FatturaElettronicaHeader.SoggettoEmittente %}
+      <SoggettoEmittente>{{ FatturaElettronica.FatturaElettronicaHeader.SoggettoEmittente }}</SoggettoEmittente>
+    {% endif %}
+  </FatturaElettronicaHeader>
+  {% for FatturaElettronicaBody_i in FatturaElettronica.FatturaElettronicaBody %}
+    <FatturaElettronicaBody>
+      <DatiGenerali>
+        <DatiGeneraliDocumento>
+          <TipoDocumento>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.TipoDocumento }}</TipoDocumento>
+          <Divisa>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.Divisa }}</Divisa>
+          <Data>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.Data }}</Data>
+          <Numero>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.Numero }}</Numero>
+          {% if FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.DatiRitenuta %}
+            <DatiRitenuta>
+              <TipoRitenuta>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.DatiRitenuta.TipoRitenuta }}</TipoRitenuta>
+              <ImportoRitenuta>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.DatiRitenuta.ImportoRitenuta }}</ImportoRitenuta>
+              <AliquotaRitenuta>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.DatiRitenuta.AliquotaRitenuta }}</AliquotaRitenuta>
+              <CausalePagamento>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.DatiRitenuta.CausalePagamento }}</CausalePagamento>
+            </DatiRitenuta>
+          {% endif %}
+          {% if FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.DatiBollo %}
+            <DatiBollo>
+              <BolloVirtuale>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.DatiBollo.BolloVirtuale }}</BolloVirtuale>
+              <ImportoBollo>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.DatiBollo.ImportoBollo }}</ImportoBollo>
+            </DatiBollo>
+          {% endif %}
+          {% if FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.DatiCassaPrevidenziale %}
+            {% for DatiCassaPrevidenziale_i in FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.DatiCassaPrevidenziale %}
+              <TipoCassa>{{ DatiCassaPrevidenziale_i.TipoCassa }}</TipoCassa>
+              <AlCassa>{{ DatiCassaPrevidenziale_i.AlCassa }}</AlCassa>
+              <ImportoContributoCassa>{{ DatiCassaPrevidenziale_i.ImportoContributoCassa }}</ImportoContributoCassa>
+              {% if DatiCassaPrevidenziale_i.ImponibileCassa %}
+                <ImponibileCassa>{{ DatiCassaPrevidenziale_i.ImponibileCassa }}</ImponibileCassa>
+              {% endif %}
+              <AliquotaIVA>{{ DatiCassaPrevidenziale_i.AliquotaIVA }}</AliquotaIVA>
+              {% if DatiCassaPrevidenziale_i.Ritenuta %}
+                <Ritenuta>{{ DatiCassaPrevidenziale_i.Ritenuta }}</Ritenuta>
+              {% endif %}
+              {% if DatiCassaPrevidenziale_i.Natura %}
+                <Natura>{{ DatiCassaPrevidenziale_i.Natura }}</Natura>
+              {% endif %}
+              {% if DatiCassaPrevidenziale_i.RiferimentoAmministrazione %}
+                <RiferimentoAmministrazione>{{ DatiCassaPrevidenziale_i.RiferimentoAmministrazione }}</RiferimentoAmministrazione>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          {% if FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.ScontoMaggiorazione %}
+            {% for ScontoMaggiorazione_i in FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.ScontoMaggiorazione %}
+              <Tipo>{{ ScontoMaggiorazione_i.Tipo }}</Tipo>
+              {% if ScontoMaggiorazione_i.Percentuale %}
+                <Percentuale>{{ ScontoMaggiorazione_i.Percentuale }}</Percentuale>
+              {% endif %}
+              {% if ScontoMaggiorazione_i.Importo %}
+                <Importo>{{ ScontoMaggiorazione_i.Importo }}</Importo>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          {% if FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.ImportoTotaleDocumento %}
+            <ImportoTotaleDocumento>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.ImportoTotaleDocumento }}</ImportoTotaleDocumento>
+          {% endif %}
+          {% if FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.Arrotondamento %}
+            <Arrotondamento>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.Arrotondamento }}</Arrotondamento>
+          {% endif %}
+          {% if FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.Causale %}
+            {% for Causale_i in FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.Causale %}
+              <Causale>{{ Causale_i }}</Causale>
+            {% endfor %}
+          {% endif %}
+          {% if FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.Art73 %}
+            <Art73>{{ FatturaElettronicaBody_i.DatiGenerali.DatiGeneraliDocumento.Art73 }}</Art73>
+          {% endif %}
+        </DatiGeneraliDocumento>
+        {% if FatturaElettronicaBody_i.DatiGenerali.DatiOrdineAcquisto %}
+          {% for DatiOrdineAcquisto_i in FatturaElettronicaBody_i.DatiGenerali.DatiOrdineAcquisto %}
+            <DatiOrdineAcquisto>
+              {% if DatiOrdineAcquisto_i.RiferimentoNumeroLinea %}
+                {% for RiferimentoNumeroLinea_i in DatiOrdineAcquisto_i.RiferimentoNumeroLinea %}
+                  <RiferimentoNumeroLinea>{{ RiferimentoNumeroLinea_i }}</RiferimentoNumeroLinea>
+                {% endfor %}
+              {% endif %}
+              <IdDocumento>{{ DatiOrdineAcquisto_i.IdDocumento }}</IdDocumento>
+              {% if DatiOrdineAcquisto_i.Data %}
+                <Data>{{ DatiOrdineAcquisto_i.Data }}</Data>
+              {% endif %}
+              {% if DatiOrdineAcquisto_i.NumItem %}
+                <NumItem>{{ DatiOrdineAcquisto_i.NumItem }}</NumItem>
+              {% endif %}
+              {% if DatiOrdineAcquisto_i.CodiceCommessaConvenzione %}
+                <CodiceCommessaConvenzione>{{ DatiOrdineAcquisto_i.CodiceCommessaConvenzione }}</CodiceCommessaConvenzione>
+              {% endif %}
+              {% if DatiOrdineAcquisto_i.CodiceCUP %}
+                <CodiceCUP>{{ DatiOrdineAcquisto_i.CodiceCUP }}</CodiceCUP>
+              {% endif %}
+              {% if DatiOrdineAcquisto_i.CodiceCIG %}
+                <CodiceCIG>{{ DatiOrdineAcquisto_i.CodiceCIG }}</CodiceCIG>
+              {% endif %}
+            </DatiOrdineAcquisto>
+          {% endfor %}
+        {% endif %}
+        {% if FatturaElettronicaBody_i.DatiGenerali.DatiContratto %}
+          {% for DatiContratto_i in FatturaElettronicaBody_i.DatiGenerali.DatiContratto %}
+            <DatiContratto>
+              {% if DatiContratto_i.RiferimentoNumeroLinea %}
+                {% for RiferimentoNumeroLinea_i in DatiContratto_i.RiferimentoNumeroLinea %}
+                  <RiferimentoNumeroLinea>{{ RiferimentoNumeroLinea_i }}</RiferimentoNumeroLinea>
+                {% endfor %}
+              {% endif %}
+              <IdDocumento>{{ DatiContratto_i.IdDocumento }}</IdDocumento>
+              {% if DatiContratto_i.Data %}
+                <Data>{{ DatiContratto_i.Data }}</Data>
+              {% endif %}
+              {% if DatiContratto_i.NumItem %}
+                <NumItem>{{ DatiContratto_i.NumItem }}</NumItem>
+              {% endif %}
+              {% if DatiContratto_i.CodiceCommessaConvenzione %}
+                <CodiceCommessaConvenzione>{{ DatiContratto_i.CodiceCommessaConvenzione }}</CodiceCommessaConvenzione>
+              {% endif %}
+              {% if DatiContratto_i.CodiceCUP %}
+                <CodiceCUP>{{ DatiContratto_i.CodiceCUP }}</CodiceCUP>
+              {% endif %}
+              {% if DatiContratto_i.CodiceCIG %}
+                <CodiceCIG>{{ DatiContratto_i.CodiceCIG }}</CodiceCIG>
+              {% endif %}
+            </DatiContratto>
+          {% endfor %}
+        {% endif %}
+        {% if FatturaElettronicaBody_i.DatiGenerali.DatiConvenzione %}
+          {% for DatiConvenzione_i in FatturaElettronicaBody_i.DatiGenerali.DatiConvenzione %}
+            <DatiConvenzione>
+              {% if DatiConvenzione_i.RiferimentoNumeroLinea %}
+                {% for RiferimentoNumeroLinea_i in DatiConvenzione_i.RiferimentoNumeroLinea %}
+                  <RiferimentoNumeroLinea>{{ RiferimentoNumeroLinea_i }}</RiferimentoNumeroLinea>
+                {% endfor %}
+              {% endif %}
+              <IdDocumento>{{ DatiConvenzione_i.IdDocumento }}</IdDocumento>
+              {% if DatiConvenzione_i.Data %}
+                <Data>{{ DatiConvenzione_i.Data }}</Data>
+              {% endif %}
+              {% if DatiConvenzione_i.NumItem %}
+                <NumItem>{{ DatiConvenzione_i.NumItem }}</NumItem>
+              {% endif %}
+              {% if DatiConvenzione_i.CodiceCommessaConvenzione %}
+                <CodiceCommessaConvenzione>{{ DatiConvenzione_i.CodiceCommessaConvenzione }}</CodiceCommessaConvenzione>
+              {% endif %}
+              {% if DatiConvenzione_i.CodiceCUP %}
+                <CodiceCUP>{{ DatiConvenzione_i.CodiceCUP }}</CodiceCUP>
+              {% endif %}
+              {% if DatiConvenzione_i.CodiceCIG %}
+                <CodiceCIG>{{ DatiConvenzione_i.CodiceCIG }}</CodiceCIG>
+              {% endif %}
+            </DatiConvenzione>
+          {% endfor %}
+        {% endif %}
+        {% if FatturaElettronicaBody_i.DatiGenerali.DatiRicezione %}
+          {% for DatiRicezione_i in FatturaElettronicaBody_i.DatiGenerali.DatiRicezione %}
+            <DatiRicezione>
+              {% if DatiRicezione_i.RiferimentoNumeroLinea %}
+                {% for RiferimentoNumeroLinea_i in DatiRicezione_i.RiferimentoNumeroLinea %}
+                  <RiferimentoNumeroLinea>{{ RiferimentoNumeroLinea_i }}</RiferimentoNumeroLinea>
+                {% endfor %}
+              {% endif %}
+              <IdDocumento>{{ DatiRicezione_i.IdDocumento }}</IdDocumento>
+              {% if DatiRicezione_i.Data %}
+                <Data>{{ DatiRicezione_i.Data }}</Data>
+              {% endif %}
+              {% if DatiRicezione_i.NumItem %}
+                <NumItem>{{ DatiRicezione_i.NumItem }}</NumItem>
+              {% endif %}
+              {% if DatiRicezione_i.CodiceCommessaConvenzione %}
+                <CodiceCommessaConvenzione>{{ DatiRicezione_i.CodiceCommessaConvenzione }}</CodiceCommessaConvenzione>
+              {% endif %}
+              {% if DatiRicezione_i.CodiceCUP %}
+                <CodiceCUP>{{ DatiRicezione_i.CodiceCUP }}</CodiceCUP>
+              {% endif %}
+              {% if DatiRicezione_i.CodiceCIG %}
+                <CodiceCIG>{{ DatiRicezione_i.CodiceCIG }}</CodiceCIG>
+              {% endif %}
+            </DatiRicezione>
+          {% endfor %}
+        {% endif %}
+        {% if FatturaElettronicaBody_i.DatiGenerali.DatiFattureCollegate %}
+          {% for DatiFattureCollegate_i in FatturaElettronicaBody_i.DatiGenerali.DatiFattureCollegate %}
+            <DatiFattureCollegate>
+              {% if DatiFattureCollegate_i.RiferimentoNumeroLinea %}
+                {% for RiferimentoNumeroLinea_i in DatiFattureCollegate_i.RiferimentoNumeroLinea %}
+                  <RiferimentoNumeroLinea>{{ RiferimentoNumeroLinea_i }}</RiferimentoNumeroLinea>
+                {% endfor %}
+              {% endif %}
+              <IdDocumento>{{ DatiFattureCollegate_i.IdDocumento }}</IdDocumento>
+              {% if DatiFattureCollegate_i.Data %}
+                <Data>{{ DatiFattureCollegate_i.Data }}</Data>
+              {% endif %}
+              {% if DatiFattureCollegate_i.NumItem %}
+                <NumItem>{{ DatiFattureCollegate_i.NumItem }}</NumItem>
+              {% endif %}
+              {% if DatiFattureCollegate_i.CodiceCommessaConvenzione %}
+                <CodiceCommessaConvenzione>{{ DatiFattureCollegate_i.CodiceCommessaConvenzione }}</CodiceCommessaConvenzione>
+              {% endif %}
+              {% if DatiFattureCollegate_i.CodiceCUP %}
+                <CodiceCUP>{{ DatiFattureCollegate_i.CodiceCUP }}</CodiceCUP>
+              {% endif %}
+              {% if DatiFattureCollegate_i.CodiceCIG %}
+                <CodiceCIG>{{ DatiFattureCollegate_i.CodiceCIG }}</CodiceCIG>
+              {% endif %}
+            </DatiFattureCollegate>
+          {% endfor %}
+        {% endif %}
+        {% if FatturaElettronicaBody_i.DatiGenerali.DatiSAL %}
+          {% for DatiSAL_i in FatturaElettronicaBody_i.DatiGenerali.DatiSAL %}
+            <DatiSAL>
+              <RiferimentoFase>{{ DatiSAL_i.RiferimentoFase }}</RiferimentoFase>
+            </DatiSAL>
+          {% endfor %}
+        {% endif %}
+        {% if FatturaElettronicaBody_i.DatiGenerali.DatiDDT %}
+          {% for DatiDDT_i in FatturaElettronicaBody_i.DatiGenerali.DatiDDT %}
+            <DatiDDT>
+              <NumeroDDT>{{ DatiDDT_i.NumeroDDT }}</NumeroDDT>
+              <DataDDT>{{ DatiDDT_i.DataDDT }}</DataDDT>
+              {% if DatiDDT_i.RiferimentoNumeroLinea %}
+                {% for RiferimentoNumeroLinea_i in DatiDDT_i.RiferimentoNumeroLinea %}
+                  <RiferimentoNumeroLinea>{{ RiferimentoNumeroLinea_i }}</RiferimentoNumeroLinea>
+                {% endfor %}
+              {% endif %}
+            </DatiDDT>
+          {% endfor %}
+        {% endif %}
+        {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto %}
+          <DatiTrasporto>
+            {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore %}
+              <DatiAnagraficiVettore>
+                <IdFiscaleIVA>
+                  <IdPaese>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.IdFiscaleIVA.IdPaese }}</IdPaese>
+                  <IdCodice>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.IdFiscaleIVA.IdCodice }}</IdCodice>
+                </IdFiscaleIVA>
+                {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.CodiceFiscale %}
+                  <CodiceFiscale>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.CodiceFiscale }}</CodiceFiscale>
+                {% endif %}
+                <Anagrafica>
+                  {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.Anagrafica.Denominazione %}
+                    <Denominazione>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.Anagrafica.Denominazione }}</Denominazione>
+                  {% endif %}
+                  {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.Anagrafica.Nome %}
+                    <Nome>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.Anagrafica.Nome }}</Nome>
+                  {% endif %}
+                  {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.Anagrafica.Cognome %}
+                    <Cognome>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.Anagrafica.Cognome }}</Cognome>
+                  {% endif %}
+                  {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.Anagrafica.Titolo %}
+                    <Titolo>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.Anagrafica.Titolo }}</Titolo>
+                  {% endif %}
+                  {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.Anagrafica.CodEORI %}
+                    <CodEORI>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.Anagrafica.CodEORI }}</CodEORI>
+                  {% endif %}
+                </Anagrafica>
+                {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.NumeroLicenzaGuida %}
+                  <NumeroLicenzaGuida>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.NumeroLicenzaGuida }}</NumeroLicenzaGuida>
+                {% endif %}
+              </DatiAnagraficiVettore>
+            {% endif %}
+            {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.CausaleTrasporto %}
+              <CausaleTrasporto>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.CausaleTrasporto }}</CausaleTrasporto>
+            {% endif %}
+            {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.NumeroColli %}
+              <NumeroColli>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.NumeroColli }}</NumeroColli>
+            {% endif %}
+            {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.Descrizione %}
+              <Descrizione>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.Descrizione }}</Descrizione>
+            {% endif %}
+            {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.UnitaMisuraPeso %}
+              <UnitaMisuraPeso>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.UnitaMisuraPeso }}</UnitaMisuraPeso>
+            {% endif %}
+            {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.PesoLordo %}
+              <PesoLordo>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.PesoLordo }}</PesoLordo>
+            {% endif %}
+            {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.PesoNetto %}
+              <PesoNetto>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.PesoNetto }}</PesoNetto>
+            {% endif %}
+            {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DataOraRitiro %}
+              <DataOraRitiro>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DataOraRitiro }}</DataOraRitiro>
+            {% endif %}
+            {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DataInizioTrasporto %}
+              <DataInizioTrasporto>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DataInizioTrasporto }}</DataInizioTrasporto>
+            {% endif %}
+            {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.TipoResa %}
+              <TipoResa>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.TipoResa }}</TipoResa>
+            {% endif %}
+            {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.IndirizzoResa %}
+              <IndirizzoResa>
+                <Indirizzo>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.IndirizzoResa.Indirizzo }}</Indirizzo>
+                {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.IndirizzoResa.NumeroCivico %}
+                  <NumeroCivico>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.IndirizzoResa.NumeroCivico }}</NumeroCivico>
+                {% endif %}
+                <CAP>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.IndirizzoResa.CAP }}</CAP>
+                <Comune>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.IndirizzoResa.Comune }}</Comune>
+                {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.IndirizzoResa.Provincia %}
+                  <Provincia>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.IndirizzoResa.Provincia }}</Provincia>
+                {% endif %}
+                <Nazione>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.IndirizzoResa.Nazione }}</Nazione>
+              </IndirizzoResa>
+            {% endif %}
+            {% if FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DataOraConsegna %}
+              <DataOraConsegna>{{ FatturaElettronicaBody_i.DatiGenerali.DatiTrasporto.DataOraConsegna }}</DataOraConsegna>
+            {% endif %}
+          </DatiTrasporto>
+        {% endif %}
+        {% if FatturaElettronicaBody_i.DatiGenerali.FatturaPrincipale %}
+          <FatturaPrincipale>
+            <NumeroFatturaPrincipale>{{ FatturaElettronicaBody_i.DatiGenerali.FatturaPrincipale.NumeroFatturaPrincipale }}</NumeroFatturaPrincipale>
+            <DataFatturaPrincipale>{{ FatturaElettronicaBody_i.DatiGenerali.FatturaPrincipale.DataFatturaPrincipale }}</DataFatturaPrincipale>
+          </FatturaPrincipale>
+        {% endif %}
+      </DatiGenerali>
+      <DatiBeniServizi>
+        {% for DettaglioLinee_i in FatturaElettronicaBody.DatiBeniServizi.DettaglioLinee %}
+          <DettaglioLinee>
+            <NumeroLinea>
+              {{ DettaglioLinee_i.NumeroLinea }}
+            </NumeroLinea>
+            {% if DettagioLinee_i.TipoCessionePrestazione %}
+              <TipoCessionePrestazione>{{ DettagioLinee_i.TipoCessionePrestazione }}</TipoCessionePrestazione>
+            {% endif %}
+            {% if DettaglioLinee_i.CodiceArticolo %}
+              {% for CodiceArticolo_i in DettaglioLinee_i.CodiceArticolo %}
+                <CodiceArticolo>
+                  <CodiceTipo>{{ CodiceArticolo_i.CodiceTipo }}</CodiceTipo>
+                  <CodiceValore>{{ CodiceArticolo_i.CodiceValore }}</CodiceValore>
+                </CodiceArticolo>
+              {% endfor %}
+            {% endif %}
+            <Descrizione> {{ DettagioLinee_i.Descrizione }}</Descrizione>
+            {% if DettaglioLinee_i.Quantita %}
+              <Quantita>{{ DettaglioLinee_i.Quantita }}</Quantita>
+            {% endif %}
+            {% if DettaglioLinee_i.UnitaDiMisura %}
+              <UnitaDiMisura>{{ DettaglioLinee_i.UnitaDiMisura }}</UnitaDiMisura>
+            {% endif %}
+            {% if DettaglioLinee_i.DataInizioPeriodo %}
+              <DataInizioPeriodo>{{ DettaglioLinee_i.DataInizioPeriodo }}</DataInizioPeriodo>
+            {% endif %}
+            {% if DettaglioLinee_i.DataFinePeriodo %}
+              <DataFinePeriodo>{{ DettaglioLinee_i.DataFinePeriodo }}</DataFinePeriodo>
+            {% endif %}
+            <PrezzoUnitario>{{ DettaglioLinee_i.PrezzoUnitario }}</PrezzoUnitario>
+            {% if DettaglioLinee_i.ScontoMaggiorazione %}
+              {% for ScontoMaggiorazione_i in DettaglioLinee_i.ScontoMaggiorazione %}
+                <ScontoMaggiorazione>
+                  <Tipo>{{ ScontoMaggiorazione_i.Tipo }}</Tipo>
+                  {% if ScontoMaggiorazione_i.Percentuale %}
+                    <Percentuale>{{ ScontoMaggiorazione_i.Percentuale }}</Percentuale>
+                  {% endif %}
+                  {% if ScontoMaggiorazione_i.Importo %}
+                    <Importo>{{ ScontoMaggiorazione_i.Importo }}</Importo>
+                  {% endif %}
+                </ScontoMaggiorazione>
+              {% endfor %}
+            {% endif %}
+            <PrezzoTotale>{{ DettaglioLinee_i.PrezzoTotale }}</PrezzoTotale>
+            <AliquotaIVA><{{ DettaglioLinee_i.AliquotaIVA }}/AliquotaIVA>
+            {% if DettaglioLinee_i.Ritenuta %}
+              <Ritenuta>{{ DettaglioLinee_i.Ritenuta }}</Ritenuta>
+            {% endif %}
+            {% if DettaglioLinee_i.Natura %}
+              <Natura>{{ DettaglioLinee_i.Natura }}</Natura>
+            {% endif %}
+            {% if DettaglioLinee_i.RiferimentoAmministazione %}
+              <RiferimentoAmministrazione>{{ DettaglioLinee_i.RiferimentoAmministrazione }}</RiferimentoAmministrazione>
+            {% endif %}
+            {% if DettaglioLinee_i.AltriDatiGestionali %}
+              {% for AltriDatiGestionali_i in DettaglioLinee_i.AltriDatiGestionali %}
+                <TipoDato>{{ AltriDatiGestionali_i.TipoDato }}</TipoDato>
+                {% if AltriDatiGestionali_i.RiferimentoTesto %}
+                  <RiferimentoTesto>{{ AltriDatiGestionali_i.RiferimentoTesto }}</RiferimentoTesto>
+                {% endif %}
+                {% if AltriDatiGestionali_i.RiferimentoNumero %}
+                  <RiferimentoNumero>{{ AltriDatiGestionali_i.RiferimentoNumero }}</RiferimentoNumero>
+                {% endif %}
+                {% if AltriDatiGestionali_i.RiferimentoData %}
+                  <RiferimentoData>{{ AltriDatiGestionali_i.RiferimentoData }}</RiferimentoData>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          </DettaglioLinee>
+        {% endfor %}
+        {% for DatiRiepilogo_i in FatturaElettronicaBody.DatiBeniServizi.DatiRiepilogo %}
+          <DatiRiepilogo>
+            <AliquotaIVA>{{ DatiRiepilogo_i.AliquotaIVA }}</AliquotaIVA>
+            {% if DatiRiepilogo_i.Natura %}
+              <Natura>{{ DatiRiepilogo_i.Natura }}</Natura>
+            {% endif %}
+            {% if DatiRiepilogo_i.SpeseAccessorie %}
+              <SpeseAccessorie>{{ DatiRiepilogo_i.SpeseAccessorie }}</SpeseAccessorie>
+            {% endif %}
+            {% if DatiRiepilogo_i.Arrotondamento %}
+              <Arrotondamento>{{ DatiRiepilogo_i.Arrotondamento }}</Arrotondamento>
+            {% endif %}
+          </DatiRiepilogo>
+        {% endfor %}
+      </DatiBeniServizi>
+    </FatturaElettronicaBody>
+  {% endfor %}
+</p:FatturaElettronica>
+
+
