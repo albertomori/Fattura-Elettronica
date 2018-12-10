@@ -1,0 +1,21 @@
+{
+    "name": "paranoiasystem/fatturaelettronica",
+    "description": "Libreria per la generazione del file xml per la fatturazione ellettronica",
+    "type": "library",
+    "authors": [
+        {
+            "name": "ParanoiaSystem",
+            "email": "marcoferraioli@live.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0.0",
+        "twig/twig": "^2.5"
+    },
+    "autoload": {
+        "psr-0": {
+            "FatturaElettronica": "src/"
+        }
+    }
+}
