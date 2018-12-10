@@ -13,6 +13,9 @@
         "php": ">=7.0.0",
         "twig/twig": "^2.5"
     },
+    "license": [
+        "GPL-3.0-or-later"
+    ],
     "autoload": {
         "psr-0": {
             "FatturaElettronica": "src/"

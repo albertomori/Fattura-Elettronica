@@ -2,10 +2,15 @@
 
 namespace FatturaElettronica;
 
-class FatturaElettronica  
+class FatturaElettronica
 {
-    public $FatturaElettronicaHeader = 'asd';
-    public $FatturaElettronicaBody = 'peppep';
+    public $FatturaElettronicaHeader;
+    public $FatturaElettronicaBody;
+
+    public function __construct() {
+        $this->FatturaElettronicaHeader = new FatturaElettronicaHeader();
+        $this->FatturaElettronicaBody = [new FatturaElettronicaBody()];
+    }
 
     public function get_this()
     {
